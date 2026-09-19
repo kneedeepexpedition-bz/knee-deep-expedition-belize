@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knee Deep Expedition Belize</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E8DFCF;
+    color: #3F3429;
+}
+
+nav {
+    background-color: #24594F;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header {
+   	    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 	    0.45)), url("Belizebird.jpg");
+ 	    background-size: cover;
+ 	    background-position: center 40%;
+	    color: white;
+	    text-align: center;
+ 	    padding: 100px 20px;
+ 	}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+header p {
+    font-size: 22px;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.welcome {
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.welcome img {
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.welcome h2,
+.gallery h2,
+.tours h2,
+.album h2,
+.contact h2,
+.why-us h2 {
+    color: #24594F;
+    font-size: 32px;
+}
+
+.welcome p {
+    max-width: 750px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    background-color: #24594F;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background-color: #1b463e;
+}
+
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.gallery-item::after {
+    content: "© Knee Deep Expedition Belize";
+    position: absolute;
+    bottom: 55px;
+    right: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 11px;
+    text-shadow: 1px 1px 3px #000;
+    pointer-events: none;
+}
+
+.gallery-item p {
+    padding: 15px;
+    margin: 0;
+    font-weight: bold;
+    color: #24594F;
+}
+
+.tours {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.tour-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.tour-card {
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    position: relative;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.tour-card::after {
+    content: "© Knee Deep Expedition Belize";
+    position: absolute;
+    top: 175px;
+    right: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 11px;
+    text-shadow: 1px 1px 3px #000;
+    pointer-events: none;
+}
+
+.tour-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.tour-info h3 {
+    color: #24594F;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.tour-info p {
+    background: transparent;
+    padding: 0;
+    line-height: 1.5;
+    min-height: 65px;
+}
+
+.tour-button {
+    display: inline-block;
+    background-color: #24594F;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.tour-button:hover {
+    background-color: #1b463e;
+}
+
+.album {
+    background-color: #DCD0BA;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.album p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.album-stack {
+    position: relative;
+    width: 330px;
+    height: 250px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.album-stack img {
+    position: absolute;
+    width: 240px;
+    height: 190px;
+    object-fit: cover;
+    border: 6px solid white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: 0.3s;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.album-stack::after {
+    content: "© Knee Deep Expedition Belize";
+    position: absolute;
+    bottom: 35px;
+    right: 15px;
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    text-shadow: 1px 1px 3px #000;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.album-stack img:nth-child(1) {
+    left: 0;
+    top: 30px;
+    transform: rotate(-12deg);
+    z-index: 1;
+}
+
+.album-stack img:nth-child(2) {
+    left: 20px;
+    top: 10px;
+    transform: rotate(-6deg);
+    z-index: 2;
+}
+
+.album-stack img:nth-child(3) {
+    left: 45px;
+    top: 0;
+    transform: rotate(0deg);
+    z-index: 5;
+}
+
+.album-stack img:nth-child(4) {
+    left: 70px;
+    top: 10px;
+    transform: rotate(6deg);
+    z-index: 2;
+}
+
+.album-stack img:nth-child(5) {
+    left: 90px;
+    top: 30px;
+    transform: rotate(12deg);
+    z-index: 1;
+}
+
+.album-stack:hover img:nth-child(1) {
+    left: -10px;
+}
+
+.album-stack:hover img:nth-child(2) {
+    left: 5px;
+}
+
+.album-stack:hover img:nth-child(4) {
+    left: 85px;
+}
+
+.album-stack:hover img:nth-child(5) {
+    left: 105px;
+}
+
+/* Taste of Belize */
+.taste-of-belize {
+    background-color: #D9A06A;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.taste-of-belize h2 {
+    color: #24594F;
+    font-size: 32px;
+}
+
+.taste-intro {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    line-height: 1.6;
+    color: #3F3429;
+}
+
+.food-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.food-card {
+    background-color: #FFF8ED;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    position: relative;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+}
+
+.food-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.food-card::after {
+    content: "© Knee Deep Expedition Belize";
+    position: absolute;
+    top: 175px;
+    right: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 11px;
+    text-shadow: 1px 1px 3px #000;
+    pointer-events: none;
+}
+
+.food-button {
+    display: inline-block;
+    background-color: #24594F;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.food-button:hover {
+    background-color: #1b463e;
+}
+
+/* Fullscreen Album Viewer */
+.album-viewer {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.album-viewer img {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.album-viewer::after {
+    content: "© Knee Deep Expedition Belize";
+    position: absolute;
+    bottom: 70px;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    text-shadow: 1px 1px 3px #000;
+    pointer-events: none;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+.album-counter {
+    color: white;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact p {
+    line-height: 1;
+}
+
+.why-us {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.why-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.why-card {
+    width: 250px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.why-card h3 {
+    color: #24594F;
+}
+
+footer {
+    background-color: #24594F;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+footer .copyright {
+    margin-top: 15px;
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    .tour-card {
+        width: 90%;
+    }
+
+    .food-card {
+        width: 90%;
+    }
+
+    .album-stack {
+        transform: scale(0.82);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#tours">Our Tours</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#album">Adventure Album</a>
+    <a href="#taste">Taste of Belize</a>
+    <a href="#contact">Contact Us</a>
+</nav>
+
+<header id="home">
+    <h1>Knee Deep Expedition Belize</h1>
+    <p>Adventure • Culture • Nature</p>
+    <p>Discover the beauty of Southern Belize with us.</p>
+</header>
+
+<section class="welcome">
+    <h2>Welcome to Knee Deep Expedition Belize</h2>
+    <img src="belize-tour.jpg" alt="Belize Adventure">
+    <p>
+        Experience the beauty, culture, wildlife and adventure of Belize
+        with a local guide who knows the country from the water to the jungle.
+    </p>
+    <a class="button"
+       href="https://wa.me/5016569388"
+       target="_blank">
+        Book Your Adventure
+    </a>
+</section>
+
+<section class="gallery" id="gallery">
+    <h2>Our Gallery</h2>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+            <img src="fishing-tour.jpg" alt="Fly Fishing">
+            <p>Fly Fishing</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="mayasite-tour.jpg" alt="Maya Sites">
+            <p>Maya Sites</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="birding-tour.jpg" alt="Birding">
+            <p>Birding</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="tours" id="tours">
+    <h2>Our Tours</h2>
+
+    <div class="tour-container">
+
+        <div class="tour-card">
+            <img src="flyfishing.jpg" alt="Fly Fishing">
+            <div class="tour-info">
+                <h3>Fly Fishing</h3>
+                <p>Experience Belize's waters and enjoy an unforgettable fly fishing adventure.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Fly%20Fishing%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="snorkeling.jpg" alt="Snorkeling">
+            <div class="tour-info">
+                <h3>Snorkeling</h3>
+                <p>Explore Belize's clear waters and discover the beauty beneath the surface.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Snorkeling%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="islandhopping.jpg" alt="Island Hopping">
+            <div class="tour-info">
+                <h3>Island Hopping</h3>
+                <p>Enjoy a day exploring beautiful islands and coastal waters around Belize.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Island%20Hopping%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="kayaking.jpg" alt="Kayaking">
+            <div class="tour-info">
+                <h3>Kayaking</h3>
+                <p>Paddle through Belize's beautiful waterways and experience nature up close.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Kayaking%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="junglehiking.jpg" alt="Jungle Hiking">
+            <div class="tour-info">
+                <h3>Jungle Hiking</h3>
+                <p>Explore the sights, sounds and natural beauty of Belize's jungle.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Jungle%20Hiking%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="birding.jpg" alt="Birding">
+            <div class="tour-info">
+                <h3>Birding</h3>
+                <p>Discover Belize's incredible birdlife with a knowledgeable local guide.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Birding%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="riodulce.jpg" alt="Rio Dulce Tour">
+            <div class="tour-info">
+                <h3>Rio Dulce Tour</h3>
+                <p>Experience the beauty and culture of the Rio Dulce area on an exciting adventure.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Rio%20Dulce%20Tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="mayasite.jpg" alt="Maya Sites">
+            <div class="tour-info">
+                <h3>Maya Sites</h3>
+                <p>Step into the history and culture of the ancient Maya civilization.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Sites%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="mayaexperience.jpg" alt="Maya Experience">
+            <div class="tour-info">
+                <h3>Maya Experience</h3>
+                <p>Connect with Maya culture through a memorable local experience.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Experience%20tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+        <div class="tour-card">
+            <img src="belizeroad.jpg" alt="Cross Country Tour">
+            <div class="tour-info">
+                <h3>Cross Country Tour</h3>
+                <p>Travel beyond the usual routes and experience more of Belize along the way.</p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Cross%20Country%20Tour." target="_blank">Book This Tour</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="album" id="album">
+    <h2>Adventure Album</h2>
+    <p>
+        A collection of moments and experiences from adventures around Belize.
+        Click the album to explore the photos.
+    </p>
+
+    <div class="album-stack" onclick="openAlbum()">
+        <img src="peaker.jpg" alt="Belize Adventure">
+        <img src="manatee.jpg" alt="Belize Adventure">
+        <img src="kayaking1.jpg" alt="Kayaking">
+        <img src="fish1.jpg" alt="Fishing">
+        <img src="birding3.jpg" alt="Birding">
+    </div>
+</section>
+
+<section class="taste-of-belize" id="taste">
+    <h2>Food Can Be Prepared</h2>
+
+    <p class="taste-intro">
+        Enjoy the convenience of freshly prepared meals during your Belize
+        experience. Breakfast, lunch, and dinner can be prepared for guests,
+        featuring a variety of local and familiar dishes. The photos below
+        show examples of some of the food that can be prepared.
+    </p>
+
+    <div class="food-container">
+
+        <div class="food-card">
+            <img src="kaba.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="grill.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="BBQ.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="fry.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="food.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="fingers.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="tacos.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="bake.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="bake1.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="pepa.jpg" alt="Food that can be prepared">
+        </div>
+
+        <div class="food-card">
+            <img src="chille.jpg" alt="Food that can be prepared">
+        </div>
+
+    </div>
+
+    <a class="food-button"
+       href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20meal%20options%20during%20my%20Belize%20experience."
+       target="_blank">
+        Ask About Meal Options
+    </a>
+</section>
+
+<div class="album-viewer" id="albumViewer">
+    <span class="close-viewer" onclick="closeAlbum()">&times;</span>
+    <span class="prev" onclick="changePhoto(-1)">&#10094;</span>
+
+    <img id="albumImage" src="" alt="Belize Adventure">
+
+    <span class="next" onclick="changePhoto(1)">&#10095;</span>
+
+    <div class="album-counter" id="albumCounter">1 / 26</div>
+</div>
+
+</section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+
+        <p>Call: 5016569388</p>
+	<p>WhatsApp: <a href="https://wa.me/5016569388">Chat with us</a></P>
+ 	<p>Email:<a href="mailto:pgfishguide@gmail.com">	pgfishguide@gmail.com</a> </p>
+	<p>Facebook:<a href="https://www.facebook.com/wild.south1">Visit our FB 	page</a></p>
+        <p>Let's plan your Belize Adventure!</p>
+    </section>
+<section class="why-us">
+    <h2>Why Us</h2>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <h3>Local Experience</h3>
+            <p>Explore Belize with someone who knows the country and its hidden treasures.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>Personalized Adventures</h3>
+            <p>Enjoy experiences planned around what you want to see and do.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>Explore Belize</h3>
+            <p>Discover the culture, nature, wildlife and beauty of Belize.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p><strong>Knee Deep Expedition Belize</strong></p>
+    <p>Punta Gorda, Toledo, Belize</p>
+    <p>Explore. Experience. Enjoy Belize.</p>
+
+    <div class="copyright">
+        © 2026 Knee Deep Expedition Belize. All Rights Reserved.<br>
+        All photographs, text, graphics, and website content are the property
+        of Knee Deep Expedition Belize and may not be copied, reproduced,
+        distributed, or used without permission.
+    </div>
+</footer>
+
+<script>
+const albumPhotos = [
+    "peaker.jpg",
+    "manatee.jpg",
+    "kayaking1.jpg",
+    "fish1.jpg",
+    "birding3.jpg",
+    "birding4.jpg",
+    "birding5.jpg",
+    "night.jpg",
+    "cave.jpg",
+    "maya1.jpg",
+    "wave.jpg",
+    "combs.jpg",
+    "camp.jpg",
+    "caught.jpg",
+    "hopping.jpg",
+    "caught2.jpg",
+    "fishing.jpg",
+    "nest.jpg",
+    "mparrot.jpg",
+    "hiking.jpg",
+    "seatopcooking.jpg",
+    "early.jpg",
+    "fly.jpg",
+    "water.jpg",
+    "waiting.jpg",
+    "view.jpg"
+];
+
+let currentPhoto = 0;
+
+function openAlbum() {
+    document.getElementById("albumViewer").style.display = "flex";
+    currentPhoto = 0;
+    showPhoto();
+}
+
+function closeAlbum() {
+    document.getElementById("albumViewer").style.display = "none";
+}
+
+function changePhoto(direction) {
+    currentPhoto += direction;
+
+    if (currentPhoto < 0) {
+        currentPhoto = albumPhotos.length - 1;
+    }
+
+    if (currentPhoto >= albumPhotos.length) {
+        currentPhoto = 0;
+    }
+
+    showPhoto();
+}
+
+function showPhoto() {
+    document.getElementById("albumImage").src = albumPhotos[currentPhoto];
+    document.getElementById("albumCounter").textContent =
+        (currentPhoto + 1) + " / " + albumPhotos.length;
+}
+
+document.addEventListener("keydown", function(event) {
+    const viewer = document.getElementById("albumViewer");
+
+    if (viewer.style.display === "flex") {
+        if (event.key === "ArrowLeft") {
+            changePhoto(-1);
+        }
+
+        if (event.key === "ArrowRight") {
+            changePhoto(1);
+        }
+
+        if (event.key === "Escape") {
+            closeAlbum();
+        }
+    }
+});
+
+/* Basic photo protection */
+document.addEventListener("contextmenu", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
+
+document.addEventListener("dragstart", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
+</script>
+
+</body>
+</html>
