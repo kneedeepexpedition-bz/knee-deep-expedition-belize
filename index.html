@@ -34,13 +34,13 @@ nav a:hover {
 }
 
 header {
-   	    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 	    0.45)), url("Belizebird.jpg");
- 	    background-size: cover;
- 	    background-position: center 40%;
-	    color: white;
-	    text-align: center;
- 	    padding: 100px 20px;
- 	}
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("Belizebird.jpg");
+    background-size: cover;
+    background-position: center 40%;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
 
 header h1 {
     font-size: 48px;
@@ -178,6 +178,7 @@ header p {
     object-fit: cover;
     user-select: none;
     -webkit-user-drag: none;
+    cursor: pointer;
 }
 
 .tour-card::after {
@@ -223,6 +224,37 @@ header p {
 
 .tour-button:hover {
     background-color: #1b463e;
+}
+
+/* Tour Image Viewer */
+.tour-image-viewer {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    justify-content: center;
+    align-items: center;
+}
+
+.tour-image-viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.tour-image-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
 }
 
 .album {
@@ -600,7 +632,7 @@ footer .copyright {
     <div class="tour-container">
 
         <div class="tour-card">
-            <img src="flyfishing.jpg" alt="Fly Fishing">
+            <img src="flyfishing.jpg" alt="Fly Fishing" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Fly Fishing</h3>
                 <p>Experience Belize's waters and enjoy an unforgettable fly fishing adventure.</p>
@@ -609,7 +641,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="snorkeling.jpg" alt="Snorkeling">
+            <img src="snorkeling.jpg" alt="Snorkeling" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Snorkeling</h3>
                 <p>Explore Belize's clear waters and discover the beauty beneath the surface.</p>
@@ -618,7 +650,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="islandhopping.jpg" alt="Island Hopping">
+            <img src="islandhopping.jpg" alt="Island Hopping" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Island Hopping</h3>
                 <p>Enjoy a day exploring beautiful islands and coastal waters around Belize.</p>
@@ -627,7 +659,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="kayaking.jpg" alt="Kayaking">
+            <img src="kayaking.jpg" alt="Kayaking" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Kayaking</h3>
                 <p>Paddle through Belize's beautiful waterways and experience nature up close.</p>
@@ -636,7 +668,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="junglehiking.jpg" alt="Jungle Hiking">
+            <img src="junglehiking.jpg" alt="Jungle Hiking" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Jungle Hiking</h3>
                 <p>Explore the sights, sounds and natural beauty of Belize's jungle.</p>
@@ -645,7 +677,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="birding.jpg" alt="Birding">
+            <img src="birding.jpg" alt="Birding" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Birding</h3>
                 <p>Discover Belize's incredible birdlife with a knowledgeable local guide.</p>
@@ -654,7 +686,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="riodulce.jpg" alt="Rio Dulce Tour">
+            <img src="riodulce.jpg" alt="Rio Dulce Tour" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Rio Dulce Tour</h3>
                 <p>Experience the beauty and culture of the Rio Dulce area on an exciting adventure.</p>
@@ -663,7 +695,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="mayasite.jpg" alt="Maya Sites">
+            <img src="mayasite.jpg" alt="Maya Sites" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Maya Sites</h3>
                 <p>Step into the history and culture of the ancient Maya civilization.</p>
@@ -672,7 +704,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="mayaexperience.jpg" alt="Maya Experience">
+            <img src="mayaexperience.jpg" alt="Maya Experience" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Maya Experience</h3>
                 <p>Connect with Maya culture through a memorable local experience.</p>
@@ -681,7 +713,7 @@ footer .copyright {
         </div>
 
         <div class="tour-card">
-            <img src="belizeroad.jpg" alt="Cross Country Tour">
+            <img src="belizeroad.jpg" alt="Cross Country Tour" onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3>Cross Country Tour</h3>
                 <p>Travel beyond the usual routes and experience more of Belize along the way.</p>
@@ -784,17 +816,16 @@ footer .copyright {
     <div class="album-counter" id="albumCounter">1 / 26</div>
 </div>
 
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <p>Call: 5016569388</p>
+    <p>WhatsApp: <a href="https://wa.me/5016569388">Chat with us</a></p>
+    <p>Email: <a href="mailto:pgfishguide@gmail.com">pgfishguide@gmail.com</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/wild.south1">Visit our FB page</a></p>
+    <p>Let's plan your Belize Adventure!</p>
 </section>
 
-    <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-
-        <p>Call: 5016569388</p>
-	<p>WhatsApp: <a href="https://wa.me/5016569388">Chat with us</a></P>
- 	<p>Email:<a href="mailto:pgfishguide@gmail.com">	pgfishguide@gmail.com</a> </p>
-	<p>Facebook:<a href="https://www.facebook.com/wild.south1">Visit our FB 	page</a></p>
-        <p>Let's plan your Belize Adventure!</p>
-    </section>
 <section class="why-us">
     <h2>Why Us</h2>
 
@@ -923,7 +954,22 @@ document.addEventListener("dragstart", function(event) {
         event.preventDefault();
     }
 });
+
+/* Tour Image Viewer */
+function openTourImage(src) {
+    document.getElementById("tourImageLarge").src = src;
+    document.getElementById("tourImageViewer").style.display = "flex";
+}
+
+function closeTourImage() {
+    document.getElementById("tourImageViewer").style.display = "none";
+}
 </script>
+
+<div class="tour-image-viewer" id="tourImageViewer" onclick="closeTourImage()">
+    <span class="tour-image-close">&times;</span>
+    <img id="tourImageLarge" src="" alt="Tour photo">
+</div>
 
 </body>
 </html>
