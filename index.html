@@ -33,6 +33,31 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Language Switcher */
+.language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1500;
+    display: flex;
+    gap: 5px;
+}
+
+.language-switcher button {
+    background-color: rgba(255,255,255,0.95);
+    border: none;
+    padding: 7px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    color: #24594F;
+}
+
+.language-switcher button:hover {
+    background-color: white;
+}
+
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("Belizebird.jpg");
     background-size: cover;
@@ -40,6 +65,7 @@ header {
     color: white;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
 }
 
 header h1 {
@@ -568,156 +594,227 @@ footer .copyright {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-switcher button {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+</div>
+
 <nav>
-    <a href="#home">Home</a>
-    <a href="#tours">Our Tours</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#album">Adventure Album</a>
-    <a href="#taste">Taste of Belize</a>
-    <a href="#contact">Contact Us</a>
+    <a href="#home" data-en="Home" data-es="Inicio">Home</a>
+    <a href="#tours" data-en="Our Tours" data-es="Nuestros Tours">Our Tours</a>
+    <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
+    <a href="#album" data-en="Adventure Album" data-es="Álbum de Aventuras">Adventure Album</a>
+    <a href="#taste" data-en="Taste of Belize" data-es="Sabores de Belice">Taste of Belize</a>
+    <a href="#contact" data-en="Contact Us" data-es="Contáctenos">Contact Us</a>
 </nav>
 
 <header id="home">
-    <h1>Knee Deep Expedition Belize</h1>
-    <p>Adventure • Culture • Nature</p>
-    <p>Discover the beauty of Southern Belize with us.</p>
+    <h1 data-en="Knee Deep Expedition Belize" data-es="Knee Deep Expedition Belize">
+        Knee Deep Expedition Belize
+    </h1>
+    <p data-en="Adventure • Culture • Nature" data-es="Aventura • Cultura • Naturaleza">
+        Adventure • Culture • Nature
+    </p>
+    <p data-en="Discover the beauty of Southern Belize with us."
+       data-es="Descubra la belleza del sur de Belice con nosotros.">
+        Discover the beauty of Southern Belize with us.
+    </p>
 </header>
 
 <section class="welcome">
-    <h2>Welcome to Knee Deep Expedition Belize</h2>
+    <h2 data-en="Welcome to Knee Deep Expedition Belize"
+        data-es="Bienvenidos a Knee Deep Expedition Belize">
+        Welcome to Knee Deep Expedition Belize
+    </h2>
+
     <img src="belize-tour.jpg" alt="Belize Adventure">
-    <p>
+
+    <p data-en="Experience the beauty, culture, wildlife and adventure of Belize with a local guide who knows the country from the water to the jungle."
+       data-es="Viva la belleza, cultura, vida silvestre y aventura de Belice con un guía local que conoce el país desde el agua hasta la selva.">
         Experience the beauty, culture, wildlife and adventure of Belize
         with a local guide who knows the country from the water to the jungle.
     </p>
+
     <a class="button"
        href="https://wa.me/5016569388"
-       target="_blank">
+       target="_blank"
+       data-en="Book Your Adventure"
+       data-es="Reserve su aventura">
         Book Your Adventure
     </a>
 </section>
 
 <section class="gallery" id="gallery">
-    <h2>Our Gallery</h2>
+    <h2 data-en="Our Gallery" data-es="Nuestra Galería">Our Gallery</h2>
 
     <div class="gallery-container">
 
         <div class="gallery-item">
             <img src="fishing-tour.jpg" alt="Fly Fishing">
-            <p>Fly Fishing</p>
+            <p data-en="Fly Fishing" data-es="Pesca con Mosca">Fly Fishing</p>
         </div>
 
         <div class="gallery-item">
             <img src="mayasite-tour.jpg" alt="Maya Sites">
-            <p>Maya Sites</p>
+            <p data-en="Maya Sites" data-es="Sitios Mayas">Maya Sites</p>
         </div>
 
         <div class="gallery-item">
             <img src="birding-tour.jpg" alt="Birding">
-            <p>Birding</p>
+            <p data-en="Birding" data-es="Observación de Aves">Birding</p>
         </div>
 
     </div>
 </section>
 
 <section class="tours" id="tours">
-    <h2>Our Tours</h2>
+    <h2 data-en="Our Tours" data-es="Nuestros Tours">Our Tours</h2>
 
     <div class="tour-container">
 
         <div class="tour-card">
             <img src="flyfishing.jpg" alt="Fly Fishing" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Fly Fishing</h3>
-                <p>Experience Belize's waters and enjoy an unforgettable fly fishing adventure.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Fly%20Fishing%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Fly Fishing" data-es="Pesca con Mosca">Fly Fishing</h3>
+                <p data-en="Experience Belize's waters and enjoy an unforgettable fly fishing adventure."
+                   data-es="Disfrute de las aguas de Belice y viva una inolvidable aventura de pesca con mosca.">
+                    Experience Belize's waters and enjoy an unforgettable fly fishing adventure.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Fly%20Fishing%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="snorkeling.jpg" alt="Snorkeling" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Snorkeling</h3>
-                <p>Explore Belize's clear waters and discover the beauty beneath the surface.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Snorkeling%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Snorkeling" data-es="Snorkel">Snorkeling</h3>
+                <p data-en="Explore Belize's clear waters and discover the beauty beneath the surface."
+                   data-es="Explore las aguas cristalinas de Belice y descubra la belleza bajo la superficie.">
+                    Explore Belize's clear waters and discover the beauty beneath the surface.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Snorkeling%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="islandhopping.jpg" alt="Island Hopping" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Island Hopping</h3>
-                <p>Enjoy a day exploring beautiful islands and coastal waters around Belize.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Island%20Hopping%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Island Hopping" data-es="Paseo por las Islas">Island Hopping</h3>
+                <p data-en="Enjoy a day exploring beautiful islands and coastal waters around Belize."
+                   data-es="Disfrute de un día explorando hermosas islas y aguas costeras de Belice.">
+                    Enjoy a day exploring beautiful islands and coastal waters around Belize.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Island%20Hopping%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="kayaking.jpg" alt="Kayaking" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Kayaking</h3>
-                <p>Paddle through Belize's beautiful waterways and experience nature up close.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Kayaking%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Kayaking" data-es="Kayak">Kayaking</h3>
+                <p data-en="Paddle through Belize's beautiful waterways and experience nature up close."
+                   data-es="Navegue en kayak por los hermosos canales de Belice y disfrute de la naturaleza de cerca.">
+                    Paddle through Belize's beautiful waterways and experience nature up close.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Kayaking%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="junglehiking.jpg" alt="Jungle Hiking" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Jungle Hiking</h3>
-                <p>Explore the sights, sounds and natural beauty of Belize's jungle.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Jungle%20Hiking%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Jungle Hiking" data-es="Senderismo en la Selva">Jungle Hiking</h3>
+                <p data-en="Explore the sights, sounds and natural beauty of Belize's jungle."
+                   data-es="Explore los paisajes, sonidos y la belleza natural de la selva de Belice.">
+                    Explore the sights, sounds and natural beauty of Belize's jungle.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Jungle%20Hiking%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="birding.jpg" alt="Birding" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Birding</h3>
-                <p>Discover Belize's incredible birdlife with a knowledgeable local guide.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Birding%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Birding" data-es="Observación de Aves">Birding</h3>
+                <p data-en="Discover Belize's incredible birdlife with a knowledgeable local guide."
+                   data-es="Descubra la increíble variedad de aves de Belice con un guía local experimentado.">
+                    Discover Belize's incredible birdlife with a knowledgeable local guide.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Birding%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="riodulce.jpg" alt="Rio Dulce Tour" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Rio Dulce Tour</h3>
-                <p>Experience the beauty and culture of the Rio Dulce area on an exciting adventure.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Rio%20Dulce%20Tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Rio Dulce Tour" data-es="Tour por Río Dulce">Rio Dulce Tour</h3>
+                <p data-en="Experience the beauty and culture of the Rio Dulce area on an exciting adventure."
+                   data-es="Descubra la belleza y cultura de la zona de Río Dulce en una emocionante aventura.">
+                    Experience the beauty and culture of the Rio Dulce area on an exciting adventure.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Rio%20Dulce%20Tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="mayasite.jpg" alt="Maya Sites" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Maya Sites</h3>
-                <p>Step into the history and culture of the ancient Maya civilization.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Sites%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Maya Sites" data-es="Sitios Mayas">Maya Sites</h3>
+                <p data-en="Step into the history and culture of the ancient Maya civilization."
+                   data-es="Adéntrese en la historia y cultura de la antigua civilización Maya.">
+                    Step into the history and culture of the ancient Maya civilization.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Sites%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="mayaexperience.jpg" alt="Maya Experience" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Maya Experience</h3>
-                <p>Connect with Maya culture through a memorable local experience.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Experience%20tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Maya Experience" data-es="Experiencia Maya">Maya Experience</h3>
+                <p data-en="Connect with Maya culture through a memorable local experience."
+                   data-es="Conéctese con la cultura Maya a través de una experiencia local inolvidable.">
+                    Connect with Maya culture through a memorable local experience.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Experience%20tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="belizeroad.jpg" alt="Cross Country Tour" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3>Cross Country Tour</h3>
-                <p>Travel beyond the usual routes and experience more of Belize along the way.</p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Cross%20Country%20Tour." target="_blank">Book This Tour</a>
+                <h3 data-en="Cross Country Tour" data-es="Tour por el País">Cross Country Tour</h3>
+                <p data-en="Travel beyond the usual routes and experience more of Belize along the way."
+                   data-es="Viaje más allá de las rutas habituales y descubra más de Belice durante el recorrido.">
+                    Travel beyond the usual routes and experience more of Belize along the way.
+                </p>
+                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Cross%20Country%20Tour." target="_blank"
+                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
             </div>
         </div>
 
@@ -725,8 +822,10 @@ footer .copyright {
 </section>
 
 <section class="album" id="album">
-    <h2>Adventure Album</h2>
-    <p>
+    <h2 data-en="Adventure Album" data-es="Álbum de Aventuras">Adventure Album</h2>
+
+    <p data-en="A collection of moments and experiences from adventures around Belize. Click the album to explore the photos."
+       data-es="Una colección de momentos y experiencias de aventuras por Belice. Haga clic en el álbum para explorar las fotos.">
         A collection of moments and experiences from adventures around Belize.
         Click the album to explore the photos.
     </p>
@@ -741,9 +840,13 @@ footer .copyright {
 </section>
 
 <section class="taste-of-belize" id="taste">
-    <h2>Food Can Be Prepared</h2>
+    <h2 data-en="Food Can Be Prepared" data-es="Se Pueden Preparar Comidas">
+        Food Can Be Prepared
+    </h2>
 
-    <p class="taste-intro">
+    <p class="taste-intro"
+       data-en="Enjoy the convenience of freshly prepared meals during your Belize experience. Breakfast, lunch, and dinner can be prepared for guests, featuring a variety of local and familiar dishes. The photos below show examples of some of the food that can be prepared."
+       data-es="Disfrute de la comodidad de comidas recién preparadas durante su experiencia en Belice. Se pueden preparar desayunos, almuerzos y cenas para los huéspedes, con una variedad de platos locales y conocidos. Las fotos de abajo muestran algunos ejemplos de las comidas que se pueden preparar.">
         Enjoy the convenience of freshly prepared meals during your Belize
         experience. Breakfast, lunch, and dinner can be prepared for guests,
         featuring a variety of local and familiar dishes. The photos below
@@ -752,55 +855,25 @@ footer .copyright {
 
     <div class="food-container">
 
-        <div class="food-card">
-            <img src="kaba.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="grill.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="BBQ.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="fry.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="food.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="fingers.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="tacos.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="bake.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="bake1.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="pepa.jpg" alt="Food that can be prepared">
-        </div>
-
-        <div class="food-card">
-            <img src="chille.jpg" alt="Food that can be prepared">
-        </div>
+        <div class="food-card"><img src="kaba.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="grill.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="BBQ.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="fry.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="food.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="fingers.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="tacos.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="bake.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="bake1.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="pepa.jpg" alt="Food that can be prepared"></div>
+        <div class="food-card"><img src="chille.jpg" alt="Food that can be prepared"></div>
 
     </div>
 
     <a class="food-button"
        href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20meal%20options%20during%20my%20Belize%20experience."
-       target="_blank">
+       target="_blank"
+       data-en="Ask About Meal Options"
+       data-es="Preguntar sobre opciones de comida">
         Ask About Meal Options
     </a>
 </section>
@@ -817,33 +890,68 @@ footer .copyright {
 </div>
 
 <section class="contact" id="contact">
-    <h2>Contact Us</h2>
+    <h2 data-en="Contact Us" data-es="Contáctenos">Contact Us</h2>
 
-    <p>Call: 5016569388</p>
-    <p>WhatsApp: <a href="https://wa.me/5016569388">Chat with us</a></p>
-    <p>Email: <a href="mailto:pgfishguide@gmail.com">pgfishguide@gmail.com</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/wild.south1">Visit our FB page</a></p>
-    <p>Let's plan your Belize Adventure!</p>
+    <p data-en="Call: 5016569388" data-es="Llame al: 5016569388">Call: 5016569388</p>
+
+    <p>
+        <span data-en="WhatsApp: " data-es="WhatsApp: ">WhatsApp: </span>
+        <a href="https://wa.me/5016569388"
+           data-en="Chat with us"
+           data-es="Chatee con nosotros">
+            Chat with us
+        </a>
+    </p>
+
+    <p>
+        <span data-en="Email: " data-es="Correo electrónico: ">Email: </span>
+        <a href="mailto:pgfishguide@gmail.com">pgfishguide@gmail.com</a>
+    </p>
+
+    <p>
+        <span data-en="Facebook: " data-es="Facebook: ">Facebook: </span>
+        <a href="https://www.facebook.com/wild.south1"
+           data-en="Visit our FB page"
+           data-es="Visite nuestra página de Facebook">
+            Visit our FB page
+        </a>
+    </p>
+
+    <p data-en="Let's plan your Belize Adventure!"
+       data-es="¡Planifiquemos su aventura en Belice!">
+        Let's plan your Belize Adventure!
+    </p>
 </section>
 
 <section class="why-us">
-    <h2>Why Us</h2>
+    <h2 data-en="Why Us" data-es="¿Por Qué Nosotros?">Why Us</h2>
 
     <div class="why-container">
 
         <div class="why-card">
-            <h3>Local Experience</h3>
-            <p>Explore Belize with someone who knows the country and its hidden treasures.</p>
+            <h3 data-en="Local Experience" data-es="Experiencia Local">Local Experience</h3>
+            <p data-en="Explore Belize with someone who knows the country and its hidden treasures."
+               data-es="Explore Belice con alguien que conoce el país y sus tesoros escondidos.">
+                Explore Belize with someone who knows the country and its hidden treasures.
+            </p>
         </div>
 
         <div class="why-card">
-            <h3>Personalized Adventures</h3>
-            <p>Enjoy experiences planned around what you want to see and do.</p>
+            <h3 data-en="Personalized Adventures" data-es="Aventuras Personalizadas">
+                Personalized Adventures
+            </h3>
+            <p data-en="Enjoy experiences planned around what you want to see and do."
+               data-es="Disfrute de experiencias planificadas según lo que desea ver y hacer.">
+                Enjoy experiences planned around what you want to see and do.
+            </p>
         </div>
 
         <div class="why-card">
-            <h3>Explore Belize</h3>
-            <p>Discover the culture, nature, wildlife and beauty of Belize.</p>
+            <h3 data-en="Explore Belize" data-es="Explore Belice">Explore Belize</h3>
+            <p data-en="Discover the culture, nature, wildlife and beauty of Belize."
+               data-es="Descubra la cultura, naturaleza, vida silvestre y belleza de Belice.">
+                Discover the culture, nature, wildlife and beauty of Belize.
+            </p>
         </div>
 
     </div>
@@ -851,8 +959,15 @@ footer .copyright {
 
 <footer>
     <p><strong>Knee Deep Expedition Belize</strong></p>
-    <p>Punta Gorda, Toledo, Belize</p>
-    <p>Explore. Experience. Enjoy Belize.</p>
+    <p data-en="Punta Gorda, Toledo, Belize"
+       data-es="Punta Gorda, Toledo, Belice">
+        Punta Gorda, Toledo, Belize
+    </p>
+
+    <p data-en="Explore. Experience. Enjoy Belize."
+       data-es="Explore. Viva la experiencia. Disfrute de Belice.">
+        Explore. Experience. Enjoy Belize.
+    </p>
 
     <div class="copyright">
         © 2026 Knee Deep Expedition Belize. All Rights Reserved.<br>
@@ -964,6 +1079,33 @@ function openTourImage(src) {
 function closeTourImage() {
     document.getElementById("tourImageViewer").style.display = "none";
 }
+
+/* English / Spanish Language Switcher */
+function setLanguage(language) {
+
+    document.querySelectorAll("[data-en][data-es]").forEach(function(element) {
+        if (language === "es") {
+            element.textContent = element.getAttribute("data-es");
+        } else {
+            element.textContent = element.getAttribute("data-en");
+        }
+    });
+
+    document.documentElement.lang = language;
+
+    localStorage.setItem("preferredLanguage", language);
+}
+
+/* Remember visitor's language choice */
+window.addEventListener("DOMContentLoaded", function() {
+    const savedLanguage = localStorage.getItem("preferredLanguage");
+
+    if (savedLanguage === "es") {
+        setLanguage("es");
+    } else {
+        setLanguage("en");
+    }
+});
 </script>
 
 <div class="tour-image-viewer" id="tourImageViewer" onclick="closeTourImage()">
