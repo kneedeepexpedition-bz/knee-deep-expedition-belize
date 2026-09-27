@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -437,7 +436,6 @@ header p {
 .album-showcase {
     max-width: 950px;
     margin: 30px auto 10px;
-    cursor: pointer;
 }
 
 .album-featured {
@@ -456,6 +454,7 @@ header p {
     transition: transform 0.4s ease;
     user-select: none;
     -webkit-user-drag: none;
+    cursor: pointer;
 }
 
 .album-showcase:hover .album-featured img {
@@ -482,6 +481,7 @@ header p {
     text-align: left;
     color: white;
     background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    pointer-events: none;
 }
 
 .album-featured-overlay h3 {
@@ -522,6 +522,7 @@ header p {
     background: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .album-strip-card:hover {
@@ -838,7 +839,6 @@ footer .copyright {
         Discover the beauty of Southern Belize and beyond with us.
     </p>
 
-    <!-- TOP WHATSAPP BUTTON -->
     <a class="top-whatsapp"
        href="https://wa.me/5016569388"
        target="_blank"
@@ -1082,12 +1082,20 @@ footer .copyright {
         Click the album to explore the photos.
     </p>
 
-    <div class="album-showcase" onclick="openAlbum()">
+    <div class="album-showcase">
+
         <div class="album-featured">
-            <img src="fall.jpg" alt="Belize Adventure">
+            <img src="fall.jpg"
+                 alt="Belize Adventure"
+                 onclick="openAlbum('fall.jpg')">
+
             <div class="album-badge">32 Adventures</div>
+
             <div class="album-featured-overlay">
-                <h3 data-en="Explore the Adventure" data-es="Explora la Aventura">Explore the Adventure</h3>
+                <h3 data-en="Explore the Adventure" data-es="Explora la Aventura">
+                    Explore the Adventure
+                </h3>
+
                 <p data-en="Click to explore all the moments in our adventure album."
                    data-es="Haga clic para explorar todos los momentos de nuestro álbum de aventuras.">
                     Click to explore all the moments in our adventure album.
@@ -1096,15 +1104,37 @@ footer .copyright {
         </div>
 
         <div class="album-strip">
-            <div class="album-strip-card"><img src="familytubing.jpg" alt="River Tubing"></div>
-            <div class="album-strip-card"><img src="group.jpg" alt="Belize Adventure Group"></div>
-            <div class="album-strip-card"><img src="falling.jpg" alt="Water Adventure"></div>
-            <div class="album-strip-card"><img src="cook.jpg" alt="Belize Cooking"></div>
-            <div class="album-strip-card"><img src="seacook.jpg" alt="Sea Cooking"></div>
+
+            <div class="album-strip-card"
+                 onclick="openAlbum('familytubing.jpg')">
+                <img src="familytubing.jpg" alt="River Tubing">
+            </div>
+
+            <div class="album-strip-card"
+                 onclick="openAlbum('group.jpg')">
+                <img src="group.jpg" alt="Belize Adventure Group">
+            </div>
+
+            <div class="album-strip-card"
+                 onclick="openAlbum('falling.jpg')">
+                <img src="falling.jpg" alt="Water Adventure">
+            </div>
+
+            <div class="album-strip-card"
+                 onclick="openAlbum('cook.jpg')">
+                <img src="cook.jpg" alt="Belize Cooking">
+            </div>
+
+            <div class="album-strip-card"
+                 onclick="openAlbum('seacook.jpg')">
+                <img src="seacook.jpg" alt="Sea Cooking">
+            </div>
+
         </div>
     </div>
 
-    <div class="album-view-button" onclick="openAlbum()"
+    <div class="album-view-button"
+         onclick="openAlbum('peaker.jpg')"
          data-en="View All 32 Adventures →"
          data-es="Ver las 32 Aventuras →">
         View All 32 Adventures →
@@ -1115,7 +1145,10 @@ footer .copyright {
     <h2 data-en="Taste of Belize" data-es="Sabores de Belice">
         Taste of Belize
     </h2>
-    <h3 class="food-subheading" data-en="Food Can Be Prepared" data-es="Se Pueden Preparar Comidas">
+
+    <h3 class="food-subheading"
+        data-en="Food Can Be Prepared"
+        data-es="Se Pueden Preparar Comidas">
         Food Can Be Prepared
     </h3>
 
@@ -1154,23 +1187,51 @@ footer .copyright {
 </section>
 
 <div class="album-viewer" id="albumViewer">
-    <span class="close-viewer" onclick="closeAlbum()">&times;</span>
-    <span class="prev" onclick="changePhoto(-1)">&#10094;</span>
 
-    <img id="albumImage" src="" alt="Belize Adventure">
+    <span class="close-viewer"
+          onclick="closeAlbum()">
+        &times;
+    </span>
 
-    <span class="next" onclick="changePhoto(1)">&#10095;</span>
+    <span class="prev"
+          onclick="changePhoto(-1)">
+        &#10094;
+    </span>
 
-    <div class="album-counter" id="albumCounter">1 / 32</div>
+    <img id="albumImage"
+         src=""
+         alt="Belize Adventure">
+
+    <span class="next"
+          onclick="changePhoto(1)">
+        &#10095;
+    </span>
+
+    <div class="album-counter"
+         id="albumCounter">
+        1 / 32
+    </div>
+
 </div>
 
 <section class="contact" id="contact">
-    <h2 data-en="Contact Us" data-es="Contáctenos">Contact Us</h2>
 
-    <p data-en="Call: 5016569388" data-es="Llame al: 5016569388">Call: 5016569388</p>
+    <h2 data-en="Contact Us"
+        data-es="Contáctenos">
+        Contact Us
+    </h2>
+
+    <p data-en="Call: 5016569388"
+       data-es="Llame al: 5016569388">
+        Call: 5016569388
+    </p>
 
     <p>
-        <span data-en="WhatsApp: " data-es="WhatsApp: ">WhatsApp: </span>
+        <span data-en="WhatsApp: "
+              data-es="WhatsApp: ">
+            WhatsApp:
+        </span>
+
         <a href="https://wa.me/5016569388"
            data-en="Chat with us"
            data-es="Chatee con nosotros">
@@ -1179,12 +1240,22 @@ footer .copyright {
     </p>
 
     <p>
-        <span data-en="Email: " data-es="Correo electrónico: ">Email: </span>
-        <a href="mailto:pgfishguide@gmail.com">pgfishguide@gmail.com</a>
+        <span data-en="Email: "
+              data-es="Correo electrónico: ">
+            Email:
+        </span>
+
+        <a href="mailto:pgfishguide@gmail.com">
+            pgfishguide@gmail.com
+        </a>
     </p>
 
     <p>
-        <span data-en="Facebook: " data-es="Facebook: ">Facebook: </span>
+        <span data-en="Facebook: "
+              data-es="Facebook: ">
+            Facebook:
+        </span>
+
         <a href="https://www.facebook.com/wild.south1"
            data-en="Visit our FB page"
            data-es="Visite nuestra página de Facebook">
@@ -1196,15 +1267,24 @@ footer .copyright {
        data-es="¡Planifiquemos su aventura en Belice!">
         Let's plan your Belize Adventure!
     </p>
+
 </section>
 
 <section class="why-us">
-    <h2 data-en="Why Us" data-es="¿Por Qué Nosotros?">Why Us</h2>
+
+    <h2 data-en="Why Us"
+        data-es="¿Por Qué Nosotros?">
+        Why Us
+    </h2>
 
     <div class="why-container">
 
         <div class="why-card">
-            <h3 data-en="Local Experience" data-es="Experiencia Local">Local Experience</h3>
+            <h3 data-en="Local Experience"
+                data-es="Experiencia Local">
+                Local Experience
+            </h3>
+
             <p data-en="Explore Belize with someone who knows the country and its hidden treasures."
                data-es="Explore Belice con alguien que conoce el país y sus tesoros escondidos.">
                 Explore Belize with someone who knows the country and its hidden treasures.
@@ -1212,9 +1292,11 @@ footer .copyright {
         </div>
 
         <div class="why-card">
-            <h3 data-en="Personalized Adventures" data-es="Aventuras Personalizadas">
+            <h3 data-en="Personalized Adventures"
+                data-es="Aventuras Personalizadas">
                 Personalized Adventures
             </h3>
+
             <p data-en="Enjoy experiences planned around what you want to see and do."
                data-es="Disfrute de experiencias planificadas según lo que desea ver y hacer.">
                 Enjoy experiences planned around what you want to see and do.
@@ -1222,7 +1304,11 @@ footer .copyright {
         </div>
 
         <div class="why-card">
-            <h3 data-en="Explore Belize" data-es="Explore Belice">Explore Belize</h3>
+            <h3 data-en="Explore Belize"
+                data-es="Explore Belice">
+                Explore Belize
+            </h3>
+
             <p data-en="Discover the culture, nature, wildlife and beauty of Belize."
                data-es="Descubra la cultura, naturaleza, vida silvestre y belleza de Belice.">
                 Discover the culture, nature, wildlife and beauty of Belize.
@@ -1230,12 +1316,17 @@ footer .copyright {
         </div>
 
     </div>
+
 </section>
 
 </div>
 
 <footer>
-    <p><strong>Knee Deep Expedition Belize</strong></p>
+
+    <p>
+        <strong>Knee Deep Expedition Belize</strong>
+    </p>
+
     <p data-en="Punta Gorda, Toledo, Belize"
        data-es="Punta Gorda, Toledo, Belice">
         Punta Gorda, Toledo, Belize
@@ -1252,9 +1343,11 @@ footer .copyright {
         of Knee Deep Expedition Belize and may not be copied, reproduced,
         distributed, or used without permission.
     </div>
+
 </footer>
 
 <script>
+
 const albumPhotos = [
     "peaker.jpg",
     "manatee.jpg",
@@ -1292,17 +1385,35 @@ const albumPhotos = [
 
 let currentPhoto = 0;
 
-function openAlbum() {
+
+/* OPEN ALBUM AT THE PHOTO THAT WAS CLICKED */
+function openAlbum(photoName = albumPhotos[0]) {
+
+    const photoIndex = albumPhotos.indexOf(photoName);
+
+    if (photoIndex !== -1) {
+        currentPhoto = photoIndex;
+    } else {
+        currentPhoto = 0;
+    }
+
     document.getElementById("albumViewer").style.display = "flex";
-    currentPhoto = 0;
+
     showPhoto();
 }
 
+
+/* CLOSE ALBUM */
 function closeAlbum() {
+
     document.getElementById("albumViewer").style.display = "none";
+
 }
 
+
+/* NEXT / PREVIOUS PHOTO */
 function changePhoto(direction) {
+
     currentPhoto += direction;
 
     if (currentPhoto < 0) {
@@ -1316,16 +1427,26 @@ function changePhoto(direction) {
     showPhoto();
 }
 
+
+/* SHOW CURRENT PHOTO */
 function showPhoto() {
-    document.getElementById("albumImage").src = albumPhotos[currentPhoto];
+
+    document.getElementById("albumImage").src =
+        albumPhotos[currentPhoto];
+
     document.getElementById("albumCounter").textContent =
         (currentPhoto + 1) + " / " + albumPhotos.length;
 }
 
+
+/* KEYBOARD CONTROLS */
 document.addEventListener("keydown", function(event) {
-    const viewer = document.getElementById("albumViewer");
+
+    const viewer =
+        document.getElementById("albumViewer");
 
     if (viewer.style.display === "flex") {
+
         if (event.key === "ArrowLeft") {
             changePhoto(-1);
         }
@@ -1337,65 +1458,106 @@ document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
             closeAlbum();
         }
+
     }
+
 });
+
 
 /* Basic photo protection */
 document.addEventListener("contextmenu", function(event) {
+
     if (event.target.tagName === "IMG") {
         event.preventDefault();
     }
+
 });
 
 document.addEventListener("dragstart", function(event) {
+
     if (event.target.tagName === "IMG") {
         event.preventDefault();
     }
+
 });
+
 
 /* Tour Image Viewer */
 function openTourImage(src) {
+
     document.getElementById("tourImageLarge").src = src;
+
     document.getElementById("tourImageViewer").style.display = "flex";
+
 }
 
 function closeTourImage() {
+
     document.getElementById("tourImageViewer").style.display = "none";
+
 }
+
 
 /* English / Spanish Language Switcher */
 function setLanguage(language) {
 
     document.querySelectorAll("[data-en][data-es]").forEach(function(element) {
+
         if (language === "es") {
-            element.textContent = element.getAttribute("data-es");
+
+            element.textContent =
+                element.getAttribute("data-es");
+
         } else {
-            element.textContent = element.getAttribute("data-en");
+
+            element.textContent =
+                element.getAttribute("data-en");
+
         }
+
     });
 
     document.documentElement.lang = language;
 
     localStorage.setItem("preferredLanguage", language);
+
 }
+
 
 /* Remember visitor's language choice */
 window.addEventListener("DOMContentLoaded", function() {
-    const savedLanguage = localStorage.getItem("preferredLanguage");
+
+    const savedLanguage =
+        localStorage.getItem("preferredLanguage");
 
     if (savedLanguage === "es") {
+
         setLanguage("es");
+
     } else {
+
         setLanguage("en");
+
     }
+
 });
+
+
 </script>
 
-<div class="tour-image-viewer" id="tourImageViewer" onclick="closeTourImage()">
-    <span class="tour-image-close">&times;</span>
-    <img id="tourImageLarge" src="" alt="Tour photo">
+<div class="tour-image-viewer"
+     id="tourImageViewer"
+     onclick="closeTourImage()">
+
+    <span class="tour-image-close">
+        &times;
+    </span>
+
+    <img id="tourImageLarge"
+         src=""
+         alt="Tour photo">
+
 </div>
 
 </body>
 </html>
-```
