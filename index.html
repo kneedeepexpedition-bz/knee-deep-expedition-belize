@@ -87,24 +87,26 @@ header p {
     text-shadow: 1px 1px 4px #000;
 }
 
-/* Top WhatsApp Button */
-.top-whatsapp {
-    display: inline-block;
+.header-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 13px 24px;
     background-color: #25D366;
     color: white;
-    padding: 13px 28px;
-    border-radius: 30px;
     text-decoration: none;
+    border-radius: 30px;
     font-weight: bold;
     font-size: 17px;
-    margin-top: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: 0.3s;
 }
 
-.top-whatsapp:hover {
+.header-whatsapp:hover {
     transform: translateY(-3px);
-    background-color: #1ebe5d;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
 
 .welcome {
@@ -114,25 +116,101 @@ header p {
 }
 
 .welcome img {
-    width: 90%;
-    max-width: 800px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     user-select: none;
     -webkit-user-drag: none;
 }
 
-.welcome h2,
-.gallery h2,
-.tours h2,
-.album h2,
-.contact h2,
-.why-us h2 {
-    color: #24594F;
-    font-size: 32px;
+/* Customer & Catch Photo Section */
+.customer-catch-section {
+    max-width: 1100px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: 320px 110px 110px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
 }
 
-.welcome p {
+.customer-catch-photo {
+    width: 150px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.customer-catch-photo:hover {
+    transform: scale(1.06);
+}
+
+.customer-catch-center {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 360px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.25);
+    cursor: pointer;
+    justify-self: center;
+}
+
+/* Arrangement A — simple 4 x 2 layout for the 8 guest/catch photos */
+.customer-catch-photo:nth-child(1) { grid-column: 1; grid-row: 2; }
+.customer-catch-photo:nth-child(2) { grid-column: 2; grid-row: 2; }
+.customer-catch-photo:nth-child(3) { grid-column: 3; grid-row: 2; }
+.customer-catch-photo:nth-child(5) { grid-column: 4; grid-row: 2; }
+.customer-catch-photo:nth-child(6) { grid-column: 1; grid-row: 3; }
+.customer-catch-photo:nth-child(7) { grid-column: 2; grid-row: 3; }
+.customer-catch-photo:nth-child(8) { grid-column: 3; grid-row: 3; }
+.customer-catch-photo:nth-child(9) { grid-column: 4; grid-row: 3; }
+
+/* Catch of the Day - photo cropping only */
+.customer-catch-photo[src="night.jpg"] {
+    object-position: center top;
+}
+
+.customer-catch-photo[src="caught.jpg"] {
+    object-position: center top;
+}
+
+.customer-catch-photo[src="flyfishing.jpg"] {
+    object-position: center top;
+}
+.customer-catch-title {
+    text-align: center;
+    color: #24594F;
+    font-size: 28px;
+    margin: 35px auto 5px;
+}
+
+.customer-catch-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .customer-catch-section {
+        grid-template-columns: repeat(2, 95px);
+        grid-template-rows: 225px 75px 75px 75px 75px;
+        gap: 8px;
+    }
+    .customer-catch-photo { width: 95px; height: 75px; }
+    .customer-catch-center { width: 225px; height: 215px; }
+    .customer-catch-photo:nth-child(1) { grid-column: 1; grid-row: 2; }
+    .customer-catch-photo:nth-child(2) { grid-column: 2; grid-row: 2; }
+    .customer-catch-photo:nth-child(3) { grid-column: 1; grid-row: 3; }
+    .customer-catch-photo:nth-child(5) { grid-column: 2; grid-row: 3; }
+    .customer-catch-photo:nth-child(6) { grid-column: 1; grid-row: 4; }
+    .customer-catch-photo:nth-child(7) { grid-column: 2; grid-row: 4; }
+    .customer-catch-photo:nth-child(8) { grid-column: 1; grid-row: 5; }
+    .customer-catch-photo:nth-child(9) { grid-column: 2; grid-row: 5; }
+}.welcome p {
     max-width: 750px;
     margin: 20px auto;
     line-height: 1.6;
@@ -261,13 +339,6 @@ header p {
     text-align: center;
 }
 
-.gallery-subheading {
-    color: #3F3429;
-    font-size: 19px;
-    font-style: italic;
-    margin: -10px auto 30px;
-}
-
 .gallery-container {
     display: flex;
     justify-content: center;
@@ -343,6 +414,13 @@ header p {
     user-select: none;
     -webkit-user-drag: none;
     cursor: pointer;
+}
+
+/* Fly Fishing tour photo - only this image is adjusted */
+.tour-card img.flyfishing-photo {
+    object-fit: contain;
+    object-position: center;
+    background: #D0E5DE;
 }
 
 .tour-card::after {
@@ -436,6 +514,7 @@ header p {
 .album-showcase {
     max-width: 950px;
     margin: 30px auto 10px;
+    cursor: pointer;
 }
 
 .album-featured {
@@ -454,7 +533,6 @@ header p {
     transition: transform 0.4s ease;
     user-select: none;
     -webkit-user-drag: none;
-    cursor: pointer;
 }
 
 .album-showcase:hover .album-featured img {
@@ -481,7 +559,6 @@ header p {
     text-align: left;
     color: white;
     background: linear-gradient(transparent, rgba(0,0,0,0.75));
-    pointer-events: none;
 }
 
 .album-featured-overlay h3 {
@@ -522,7 +599,6 @@ header p {
     background: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: 0.3s;
-    cursor: pointer;
 }
 
 .album-strip-card:hover {
@@ -709,6 +785,19 @@ header p {
     line-height: 1;
 }
 
+/* Business Branding */
+.contact-logo {
+    display: block;
+    max-width: 330px;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+    margin: 0 auto 30px;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 .why-us {
     padding: 50px 20px;
     text-align: center;
@@ -748,6 +837,7 @@ footer .copyright {
 }
 
 @media (max-width: 600px) {
+
     .site-content {
         width: 100%;
         box-shadow: none;
@@ -796,6 +886,11 @@ footer .copyright {
         font-size: 11px;
         padding: 6px 8px;
     }
+
+    .contact-logo {
+        max-width: 260px;
+        max-height: 180px;
+    }
 }
 </style>
 </head>
@@ -824,24 +919,26 @@ footer .copyright {
         Knee Deep Expedition Belize
     </h1>
 
-    <p data-en="Adventure • Culture • Nature" data-es="Aventura • Cultura • Naturaleza">
+    <p data-en="Adventure • Culture • Nature"
+       data-es="Aventura • Cultura • Naturaleza">
         Adventure • Culture • Nature
     </p>
 
     <div class="motto top-motto"
-         data-en="Your adventure, your way, your experience — we’re here to guide you."
-         data-es="Tu aventura, a tu manera, tu experiencia — estamos aquí para guiarte.">
-        Your adventure, your way, your experience — we’re here to guide you.
+         data-en="Your Adventure, Our Job"
+         data-es="Tu Aventura, Nuestro Trabajo">
+        Your Adventure, Our Job
     </div>
 
     <p data-en="Discover the beauty of Southern Belize and beyond with us."
-       data-es="Descubra la belleza del sur de Belice con nosotros.">
+       data-es="Descubra la belleza del sur de Belice y más allá con nosotros.">
         Discover the beauty of Southern Belize and beyond with us.
     </p>
 
-    <a class="top-whatsapp"
+    <a class="header-whatsapp"
        href="https://wa.me/5016569388"
        target="_blank"
+       rel="noopener noreferrer"
        data-en="💬 WhatsApp Us"
        data-es="💬 Escríbanos por WhatsApp">
         💬 WhatsApp Us
@@ -849,12 +946,72 @@ footer .copyright {
 </header>
 
 <section class="welcome">
+
     <h2 data-en="Welcome to Knee Deep Expedition Belize"
         data-es="Bienvenidos a Knee Deep Expedition Belize">
         Welcome to Knee Deep Expedition Belize
     </h2>
 
-    <img src="belize-tour.jpg" alt="Belize Adventure">
+    <h3 class="customer-catch-title"
+        data-en="Catch of the Day"
+        data-es="La Pesca del Día">
+        Catch of the Day
+    </h3>
+
+    <p class="customer-catch-intro"
+       data-en="Memories from adventures on the water with Knee Deep Expedition Belize."
+       data-es="Recuerdos de aventuras en el agua con Knee Deep Expedition Belize.">
+        Memories from adventures on the water with Knee Deep Expedition Belize.
+    </p>
+
+    <div class="customer-catch-section">
+
+        <img class="customer-catch-photo"
+             src="catchy.jpg"
+             alt="Guest with catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="catchtyy.jpg"
+             alt="Guest with catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="catchty.jpg"
+             alt="Guest with catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo customer-catch-center"
+             src="belize-tour.jpg"
+             alt="Belize Adventure"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="caught.jpg"
+             alt="Guest catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="caught2.jpg"
+             alt="Guest catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="fishing-tour.jpg"
+             alt="Fishing adventure"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="flyfishing.jpg"
+             alt="Fly fishing catch"
+             onclick="openTourImage(this.src)">
+
+        <img class="customer-catch-photo"
+             src="night.jpg"
+             alt="Fishing adventure"
+             onclick="openTourImage(this.src)">
+
+    </div>
 
     <p data-en="Experience the beauty, culture, wildlife and adventure of Belize with a local guide who knows the country from the water to the jungle."
        data-es="Viva la belleza, cultura, vida silvestre y aventura de Belice con un guía local que conoce el país desde el agua hasta la selva.">
@@ -869,16 +1026,12 @@ footer .copyright {
        data-es="Reserve su aventura">
         Book Your Adventure
     </a>
+
 </section>
 
 <section class="gallery" id="gallery">
-    <h2 data-en="Our Gallery" data-es="Nuestra Galería">Our Gallery</h2>
 
-    <p class="gallery-subheading"
-       data-en="Our gallery is growing as the adventure continues…"
-       data-es="Nuestra galería crece mientras continúa la aventura…">
-        Our gallery is growing as the adventure continues…
-    </p>
+    <h2 data-en="Our Gallery" data-es="Nuestra Galería">Our Gallery</h2>
 
     <div class="gallery-container">
 
@@ -911,20 +1064,29 @@ footer .copyright {
 </section>
 
 <section class="tours" id="tours">
+
     <h2 data-en="Our Tours" data-es="Nuestros Tours">Our Tours</h2>
 
     <div class="tour-container">
 
         <div class="tour-card">
-            <img src="flyfishing.jpg" alt="Fly Fishing" onclick="openTourImage(this.src)">
+            <img class="flyfishing-photo"
+                 src="flyfishing.jpg"
+                 alt="Fly Fishing"
+                 onclick="openTourImage(this.src)">
             <div class="tour-info">
                 <h3 data-en="Fly Fishing" data-es="Pesca con Mosca">Fly Fishing</h3>
                 <p data-en="Experience Belize's waters and enjoy an unforgettable fly fishing adventure."
                    data-es="Disfrute de las aguas de Belice y viva una inolvidable aventura de pesca con mosca.">
                     Experience Belize's waters and enjoy an unforgettable fly fishing adventure.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Fly%20Fishing%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Fly%20Fishing%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -936,8 +1098,13 @@ footer .copyright {
                    data-es="Explore las aguas cristalinas de Belice y descubra la belleza bajo la superficie.">
                     Explore Belize's clear waters and discover the beauty beneath the surface.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Snorkeling%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Snorkeling%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -949,8 +1116,13 @@ footer .copyright {
                    data-es="Disfrute de un día explorando hermosas islas y aguas costeras de Belice.">
                     Enjoy a day exploring beautiful islands and coastal waters around Belize.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Island%20Hopping%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Island%20Hopping%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -962,8 +1134,13 @@ footer .copyright {
                    data-es="Navegue en kayak por los hermosos canales de Belice y disfrute de la naturaleza de cerca.">
                     Paddle through Belize's beautiful waterways and experience nature up close.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Kayaking%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Kayaking%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -975,8 +1152,13 @@ footer .copyright {
                    data-es="Explore los paisajes, sonidos y la belleza natural de la selva de Belice.">
                     Explore the sights, sounds and natural beauty of Belize's jungle.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Jungle%20Hiking%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Jungle%20Hiking%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -988,8 +1170,13 @@ footer .copyright {
                    data-es="Descubra la increíble variedad de aves de Belice con un guía local experimentado.">
                     Discover Belize's incredible birdlife with a knowledgeable local guide.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Birding%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Birding%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -1001,8 +1188,13 @@ footer .copyright {
                    data-es="Descubra la belleza y cultura de la zona de Río Dulce en una emocionante aventura.">
                     Experience the beauty and culture of the Rio Dulce area on an exciting adventure.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Rio%20Dulce%20Tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Rio%20Dulce%20Tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -1014,34 +1206,55 @@ footer .copyright {
                    data-es="Adéntrese en la historia y cultura de la antigua civilización Maya.">
                     Step into the history and culture of the ancient Maya civilization.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Sites%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Sites%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="mayasite.jpg" alt="Maya Experience" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3 data-en="Maya Experience At Tikal National Park" data-es="Experiencia Maya en el Parque Nacional Tikal">Maya Experience</h3>
+                <h3 data-en="Maya Experience At Tikal National Park"
+                    data-es="Experiencia Maya en el Parque Nacional Tikal">
+                    Maya Experience
+                </h3>
                 <p data-en="Connect with Maya culture through a memorable local experience."
                    data-es="Conéctese con la cultura Maya a través de una experiencia local inolvidable.">
                     Connect with Maya culture through a memorable local experience.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Experience%20tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Maya%20Experience%20tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
         <div class="tour-card">
             <img src="belizeroad.jpg" alt="Cross Country Tour" onclick="openTourImage(this.src)">
             <div class="tour-info">
-                <h3 data-en="Cross Country Tour" data-es="Tour por el País">Cross Country Tour</h3>
+                <h3 data-en="Cross Country Tour"
+                    data-es="Tour por el País">
+                    Cross Country Tour
+                </h3>
                 <p data-en="Travel beyond the usual routes and experience more of Belize along the way."
                    data-es="Viaje más allá de las rutas habituales y descubra más de Belice durante el recorrido.">
                     Travel beyond the usual routes and experience more of Belize along the way.
                 </p>
-                <a class="tour-button" href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Cross%20Country%20Tour." target="_blank"
-                   data-en="Book This Tour" data-es="Reserve Este Tour">Book This Tour</a>
+                <a class="tour-button"
+                   href="https://wa.me/5016569388?text=Hello%2C%20I%27m%20interested%20in%20booking%20the%20Cross%20Country%20Tour."
+                   target="_blank"
+                   data-en="Book This Tour"
+                   data-es="Reserve Este Tour">
+                    Book This Tour
+                </a>
             </div>
         </div>
 
@@ -1049,6 +1262,7 @@ footer .copyright {
 </section>
 
 <section class="custom-adventures" id="custom-adventures">
+
     <h2 data-en="BUILD YOUR OWN ADVENTURE"
         data-es="CREA TU PROPIA AVENTURA">
         BUILD YOUR OWN ADVENTURE
@@ -1061,20 +1275,88 @@ footer .copyright {
     </p>
 
     <div class="adventure-options">
-        <div class="adventure-option tag-option"><span>🔭</span><strong data-en="Bird Watching" data-es="Observación de Aves">Bird Watching</strong></div>
-        <div class="adventure-option tag-option"><span>𓅨𓃖𓃮</span><strong data-en="Jungle Adventures" data-es="Aventuras en la Selva">Jungle Adventures</strong></div>
-        <div class="adventure-option tag-option"><span>🔦</span><strong data-en="Cave Tubing" data-es="Tubing en Cuevas">Cave Tubing</strong></div>
-        <div class="adventure-option tag-option"><span>🧗</span><strong data-en="Ziplining" data-es="Zipline">Ziplining</strong></div>
-        <div class="adventure-option tag-option"><span>🏛️</span><strong data-en="Archaeological Sites" data-es="Sitios Arqueológicos">Archaeological Sites</strong></div>
-        <div class="adventure-option tag-option"><span>🗿</span><strong data-en="Tikal Tours" data-es="Tours a Tikal">Tikal Tours</strong></div>
-        <div class="adventure-option tag-option"><span>🚤</span><strong data-en="Rio Dulce" data-es="Río Dulce">Rio Dulce</strong></div>
-        <div class="adventure-option tag-option"><span>🍽️🎭</span><strong data-en="Food & Culture" data-es="Comida y Cultura">Food & Culture</strong></div>
-        <div class="adventure-option tag-option"><span>📍🗺️</span><strong data-en="Other Cross Country Adventures" data-es="Otras Aventuras por el País">Other Cross Country Adventures</strong></div>
+
+        <div class="adventure-option tag-option">
+            <span>🔭</span>
+            <strong data-en="Bird Watching"
+                    data-es="Observación de Aves">
+                Bird Watching
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>𓃮𓅇𓃸</span>
+            <strong data-en="Jungle Adventures"
+                    data-es="Aventuras en la Selva">
+                Jungle Adventures
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🔦</span>
+            <strong data-en="Cave Tubing"
+                    data-es="Tubing en Cuevas">
+                Cave Tubing
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🧗</span>
+            <strong data-en="Ziplining"
+                    data-es="Zipline">
+                Ziplining
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🏛️</span>
+            <strong data-en="Archaeological Sites"
+                    data-es="Sitios Arqueológicos">
+                Archaeological Sites
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🗿</span>
+            <strong data-en="Tikal Tours"
+                    data-es="Tours a Tikal">
+                Tikal Tours
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🚤</span>
+            <strong data-en="Rio Dulce"
+                    data-es="Río Dulce">
+                Rio Dulce
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>🍽️🎭</span>
+            <strong data-en="Food & Culture"
+                    data-es="Comida y Cultura">
+                Food & Culture
+            </strong>
+        </div>
+
+        <div class="adventure-option tag-option">
+            <span>📍🗺️<span>
+            <strong data-en="Other Cross Country Adventures"
+                    data-es="Otras Aventuras por el País">
+                Other Cross Country Adventures
+            </strong>
+        </div>
+
     </div>
 </section>
 
 <section class="album" id="album">
-    <h2 data-en="Adventure Album" data-es="Álbum de Aventuras">Adventure Album</h2>
+
+    <h2 data-en="Adventure Album"
+        data-es="Álbum de Aventuras">
+        Adventure Album
+    </h2>
 
     <p data-en="A collection of moments and experiences from adventures around Belize. Click the album to explore the photos."
        data-es="Una colección de momentos y experiencias de aventuras por Belice. Haga clic en el álbum para explorar las fotos.">
@@ -1082,17 +1364,17 @@ footer .copyright {
         Click the album to explore the photos.
     </p>
 
-    <div class="album-showcase">
+    <div class="album-showcase" onclick="openAlbum()">
 
         <div class="album-featured">
-            <img src="fall.jpg"
-                 alt="Belize Adventure"
-                 onclick="openAlbum('fall.jpg')">
 
-            <div class="album-badge">32 Adventures</div>
+            <img src="fall.jpg" alt="Belize Adventure">
+
+            <div class="album-badge">34 Adventures</div>
 
             <div class="album-featured-overlay">
-                <h3 data-en="Explore the Adventure" data-es="Explora la Aventura">
+                <h3 data-en="Explore the Adventure"
+                    data-es="Explora la Aventura">
                     Explore the Adventure
                 </h3>
 
@@ -1101,32 +1383,28 @@ footer .copyright {
                     Click to explore all the moments in our adventure album.
                 </p>
             </div>
+
         </div>
 
         <div class="album-strip">
 
-            <div class="album-strip-card"
-                 onclick="openAlbum('familytubing.jpg')">
+            <div class="album-strip-card">
                 <img src="familytubing.jpg" alt="River Tubing">
             </div>
 
-            <div class="album-strip-card"
-                 onclick="openAlbum('group.jpg')">
+            <div class="album-strip-card">
                 <img src="group.jpg" alt="Belize Adventure Group">
             </div>
 
-            <div class="album-strip-card"
-                 onclick="openAlbum('falling.jpg')">
+            <div class="album-strip-card">
                 <img src="falling.jpg" alt="Water Adventure">
             </div>
 
-            <div class="album-strip-card"
-                 onclick="openAlbum('cook.jpg')">
+            <div class="album-strip-card">
                 <img src="cook.jpg" alt="Belize Cooking">
             </div>
 
-            <div class="album-strip-card"
-                 onclick="openAlbum('seacook.jpg')">
+            <div class="album-strip-card">
                 <img src="seacook.jpg" alt="Sea Cooking">
             </div>
 
@@ -1134,15 +1412,18 @@ footer .copyright {
     </div>
 
     <div class="album-view-button"
-         onclick="openAlbum('peaker.jpg')"
-         data-en="View All 32 Adventures →"
-         data-es="Ver las 32 Aventuras →">
-        View All 32 Adventures →
+         onclick="openAlbum()"
+         data-en="View All 34 Adventures →"
+         data-es="Ver las 34 Aventuras →">
+        View All 34 Adventures →
     </div>
+
 </section>
 
 <section class="taste-of-belize" id="taste">
-    <h2 data-en="Taste of Belize" data-es="Sabores de Belice">
+
+    <h2 data-en="Taste of Belize"
+        data-es="Sabores de Belice">
         Taste of Belize
     </h2>
 
@@ -1184,6 +1465,7 @@ footer .copyright {
        data-es="Preguntar sobre opciones de comida">
         Ask About Meal Options
     </a>
+
 </section>
 
 <div class="album-viewer" id="albumViewer">
@@ -1209,7 +1491,7 @@ footer .copyright {
 
     <div class="album-counter"
          id="albumCounter">
-        1 / 32
+        1 / 34
     </div>
 
 </div>
@@ -1220,6 +1502,11 @@ footer .copyright {
         data-es="Contáctenos">
         Contact Us
     </h2>
+
+    <!-- Business Branding Image -->
+    <img class="contact-logo"
+         src="name.jpg"
+         alt="Belize Bird and Fishing Guide">
 
     <p data-en="Call: 5016569388"
        data-es="Llame al: 5016569388">
@@ -1292,6 +1579,7 @@ footer .copyright {
         </div>
 
         <div class="why-card">
+
             <h3 data-en="Personalized Adventures"
                 data-es="Aventuras Personalizadas">
                 Personalized Adventures
@@ -1301,9 +1589,11 @@ footer .copyright {
                data-es="Disfrute de experiencias planificadas según lo que desea ver y hacer.">
                 Enjoy experiences planned around what you want to see and do.
             </p>
+
         </div>
 
         <div class="why-card">
+
             <h3 data-en="Explore Belize"
                 data-es="Explore Belice">
                 Explore Belize
@@ -1313,6 +1603,7 @@ footer .copyright {
                data-es="Descubra la cultura, naturaleza, vida silvestre y belleza de Belice.">
                 Discover the culture, nature, wildlife and beauty of Belize.
             </p>
+
         </div>
 
     </div>
@@ -1349,6 +1640,7 @@ footer .copyright {
 <script>
 
 const albumPhotos = [
+
     "peaker.jpg",
     "manatee.jpg",
     "kayaking1.jpg",
@@ -1380,38 +1672,30 @@ const albumPhotos = [
     "group.jpg",
     "falling.jpg",
     "cook.jpg",
-    "seacook.jpg"
+    "seacook.jpg",
+    "sset.jpg",
+    "under.jpg"
+
 ];
 
 let currentPhoto = 0;
 
-
-/* OPEN ALBUM AT THE PHOTO THAT WAS CLICKED */
-function openAlbum(photoName = albumPhotos[0]) {
-
-    const photoIndex = albumPhotos.indexOf(photoName);
-
-    if (photoIndex !== -1) {
-        currentPhoto = photoIndex;
-    } else {
-        currentPhoto = 0;
-    }
+function openAlbum() {
 
     document.getElementById("albumViewer").style.display = "flex";
 
+    currentPhoto = 0;
+
     showPhoto();
+
 }
 
-
-/* CLOSE ALBUM */
 function closeAlbum() {
 
     document.getElementById("albumViewer").style.display = "none";
 
 }
 
-
-/* NEXT / PREVIOUS PHOTO */
 function changePhoto(direction) {
 
     currentPhoto += direction;
@@ -1425,10 +1709,9 @@ function changePhoto(direction) {
     }
 
     showPhoto();
+
 }
 
-
-/* SHOW CURRENT PHOTO */
 function showPhoto() {
 
     document.getElementById("albumImage").src =
@@ -1436,10 +1719,9 @@ function showPhoto() {
 
     document.getElementById("albumCounter").textContent =
         (currentPhoto + 1) + " / " + albumPhotos.length;
+
 }
 
-
-/* KEYBOARD CONTROLS */
 document.addEventListener("keydown", function(event) {
 
     const viewer =
@@ -1463,8 +1745,8 @@ document.addEventListener("keydown", function(event) {
 
 });
 
-
 /* Basic photo protection */
+
 document.addEventListener("contextmenu", function(event) {
 
     if (event.target.tagName === "IMG") {
@@ -1481,8 +1763,8 @@ document.addEventListener("dragstart", function(event) {
 
 });
 
-
 /* Tour Image Viewer */
+
 function openTourImage(src) {
 
     document.getElementById("tourImageLarge").src = src;
@@ -1497,25 +1779,26 @@ function closeTourImage() {
 
 }
 
-
 /* English / Spanish Language Switcher */
+
 function setLanguage(language) {
 
-    document.querySelectorAll("[data-en][data-es]").forEach(function(element) {
+    document.querySelectorAll("[data-en][data-es]")
+        .forEach(function(element) {
 
-        if (language === "es") {
+            if (language === "es") {
 
-            element.textContent =
-                element.getAttribute("data-es");
+                element.textContent =
+                    element.getAttribute("data-es");
 
-        } else {
+            } else {
 
-            element.textContent =
-                element.getAttribute("data-en");
+                element.textContent =
+                    element.getAttribute("data-en");
 
-        }
+            }
 
-    });
+        });
 
     document.documentElement.lang = language;
 
@@ -1523,8 +1806,8 @@ function setLanguage(language) {
 
 }
 
-
 /* Remember visitor's language choice */
+
 window.addEventListener("DOMContentLoaded", function() {
 
     const savedLanguage =
@@ -1541,7 +1824,6 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
 });
-
 
 </script>
 
